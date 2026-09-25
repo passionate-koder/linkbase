@@ -33,6 +33,9 @@ linkbase/
 │   ├── globals.css       # Global styles & Tailwind CSS imports
 │   ├── layout.tsx        # Root layout component
 │   └── page.tsx          # Main landing page component
+├── docs/                 # Project documentation & design system specs
+│   ├── design-system.md  # Design tokens, color ramps, typography & Tailwind mappings
+│   └── ui.md             # UI components, variants, states, layouts & a11y specs
 ├── public/               # Static assets (images, SVGs, etc.)
 ├── .gitignore            # Git ignore rules
 ├── AGENTS.md             # AI Agent instructions (this file)
@@ -79,4 +82,18 @@ linkbase/
 1. **Do Not Remove Next.js Agent Block**: The `<!-- BEGIN:nextjs-agent-rules -->` comment block at the top of `AGENTS.md` is automatically maintained by Next.js (`next dev`). Always retain it.
 2. **Verification**: Always run `npm run lint` or `npm run build` to verify code changes before concluding tasks.
 3. **TypeScript Compliance**: Ensure strict typing without using `any` unless strictly necessary.
+
+---
+
+## 6. Doc Conventions
+
+Whenever a new file is created in `/docs`, add it to the **Project Docs** table below with one line on what it covers and when to read it.
+
+### Project Docs
+
+| Document | What It Covers | When to Read |
+| :--- | :--- | :--- |
+| [`docs/design-system.md`](docs/design-system.md) | Design tokens (colors with hex & Tailwind classes, type scale, spacing, radius, shadows, breakpoints, motion) and Tailwind config. | Read when setting up Tailwind theme tokens, creating styles, or looking up color/type/spacing values. |
+| [`docs/ui.md`](docs/ui.md) | Component catalog (all 13 primitives with props, variants, states), layout patterns, accessibility notes, and Next.js + Tailwind implementations. | Read when implementing or modifying UI components, page layouts, forms, and interaction states. |
+
 
