@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/linkbase-design-system-9f6309ef-09f8-4538-8f26-1695891468ee/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/linkbase-design-system-9f6309ef-09f8-4538-8f26-1695891468ee/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/linkbase-design-system-9f6309ef-09f8-4538-8f26-1695891468ee/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/linkbase-design-system-9f6309ef-09f8-4538-8f26-1695891468ee/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/linkbase-design-system-9f6309ef-09f8-4538-8f26-1695891468ee/tokens/radius.css">
+  <link rel="stylesheet" href="_ds/linkbase-design-system-9f6309ef-09f8-4538-8f26-1695891468ee/tokens/shadow.css">
+  <link rel="stylesheet" href="_ds/linkbase-design-system-9f6309ef-09f8-4538-8f26-1695891468ee/styles.css">
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="_ds/linkbase-design-system-9f6309ef-09f8-4538-8f26-1695891468ee/_ds_bundle.js"></script>
+  <style>
+    html,body{margin:0;background:#000}
+    *{box-sizing:border-box}
+    a{color:var(--ink);text-decoration:none}
+    a:hover{color:var(--gray-600)}
+  </style>
+</helmet>
+<div ref="{{ setRoot }}" style="{{ rootStyle }}">
+  <div style="{{ promoStyle }}">
+    <span style="font-weight:600;font-size:16px">Elevate your design with better themes and styles.</span>
+    <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.Button" variant="green" size="sm" left-icon="{{ iconZap }}" hint-size="120px,36px">Upgrade</x-import>
+  </div>
+  <div style="{{ sheetStyle }}">
+    <div style="{{ urlBarStyle }}">
+      <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.IconButton" label="Back" variant="ghost" hint-size="44px,44px">{{ iconBack }}</x-import>
+      <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.Badge" variant="soft" size="md" left-icon="{{ iconAsterisk }}" hint-size="auto,44px">linkbase.to/{{ username }}</x-import>
+      <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.Button" variant="outline" size="sm" left-icon="{{ iconSparkles }}" hint-size="120px,40px">Enhance</x-import>
+    </div>
+    <div style="{{ workspaceStyle }}">
+      <div style="{{ rowStyle }}">
+        <sc-if value="{{ showSidebar }}" hint-placeholder-val="{{ true }}">
+          <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.SidebarNav" items="{{ navItems }}" active="{{ activeNav }}" on-select="{{ selectNav }}" hint-size="72px,320px"></x-import>
+        </sc-if>
+        <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+          <div style="{{ mobileNavStyle }}">
+            <sc-for list="{{ navMobile }}" as="n" hint-placeholder-count="4">
+              <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.IconButton" label="{{ n.label }}" variant="{{ n.variant }}" on-click="{{ n.onClick }}" hint-size="44px,44px">{{ n.icon }}</x-import>
+            </sc-for>
+          </div>
+        </sc-if>
+        <div style="{{ editorStyle }}">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;gap:12px">
+            <h1 style="margin:0;font-size:28px;font-weight:800;color:var(--ink);letter-spacing:-0.02em">Content</h1>
+            
+          </div>
+          <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.Tabs" tabs="{{ tabs }}" active="{{ activeTab }}" on-select="{{ selectTab }}" hint-size="200px,44px"></x-import>
+          <sc-if value="{{ isLinks }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;align-items:center;gap:14px;margin:22px 0 20px">
+              <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.Avatar" name="{{ username }}" size="md" hint-size="48px,48px"></x-import>
+              <div>
+                <div style="font-weight:700;font-size:18px;color:var(--ink)">{{ username }}</div>
+                <div style="display:flex;align-items:center;gap:5px;margin-top:4px;color:var(--gray-500);font-weight:500;font-size:14px">{{ iconAtSign }}{{ username }}</div>
+              </div>
+            </div>
+            <div style="margin-bottom:22px">
+              <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.Button" variant="primary" full-width="{{ true }}" left-icon="{{ iconAdd }}" on-click="{{ addLink }}" hint-size="100%,44px">Add</x-import>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <sc-for list="{{ links }}" as="l" hint-placeholder-count="2">
+                <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.LinkRow" title="{{ l.title }}" clicks="{{ l.clicks }}" domain="{{ l.domain }}" thumb-icon="{{ l.thumbNode }}" hint-size="100%,84px"></x-import>
+              </sc-for>
+            </div>
+            <div style="border-top:1px solid var(--border-subtle);margin:24px 0"></div>
+            <div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:16px">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+                <span style="font-weight:700;font-size:16px;color:var(--ink)">Linkbase footer</span>
+                <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.Toggle" checked="{{ footerOn }}" on-change="{{ setFooter }}" hint-size="52px,32px"></x-import>
+              </div>
+              <div style="font-family:var(--font-display);font-weight:900;font-size:26px;color:var(--ink)">Link<span style="color:var(--green)">base</span></div>
+            </div>
+          </sc-if>
+        </div>
+        <div style="{{ phoneWrapStyle }}">
+          <div style="{{ phoneStyle }}">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <div style="width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-xs)">{{ iconAsterisk }}</div>
+              <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.IconButton" label="Share" variant="white" size="sm" hint-size="32px,32px">{{ iconShareSm }}</x-import>
+            </div>
+            <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.ProfileHeader" name="{{ username }}" avatar="{{ avatarNode }}" socials="{{ socials }}" hint-size="100%,150px"></x-import>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:6px">
+              <sc-for list="{{ links }}" as="l" hint-placeholder-count="2">
+                <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.ProfileLinkButton" title="{{ l.title }}" hint-size="100%,56px"></x-import>
+              </sc-for>
+            </div>
+            <sc-if value="{{ footerOn }}" hint-placeholder-val="{{ true }}">
+              <div style="text-align:center;margin-top:20px">
+                <x-import component-from-global-scope="LinkbaseDesignSystem_9f6309.Badge" variant="dark" hint-size="auto,32px">Join {{ username }} on Linkbase</x-import>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:880},&quot;username&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;gabbasdev&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#1cb454&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#1cb454&quot;,&quot;#0b4bd1&quot;,&quot;#612b9b&quot;,&quot;#7a1e2e&quot;,&quot;#e0a82e&quot;]},&quot;footerDefaultOn&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      nav: 'content',
+      tab: 'links',
+      footerOn: props.footerDefaultOn !== false,
+      width: (typeof window !== 'undefined' ? window.innerWidth : 1280),
+      links: [
+        { id: 1, title: 'Ghulam Abbas | Full Stack Developer | Building Real-World Apps', clicks: 0, domain: 'udemy.com', icon: 'graduation-cap' },
+        { id: 2, title: 'Instagram', clicks: 3, domain: 'instagram.com', icon: 'instagram' },
+      ],
+    };
+    this._onResize = () => this.setState({ width: window.innerWidth });
+  }
+
+  componentDidMount() {
+    if (typeof window !== 'undefined' && !window.React) window.React = React;
+    window.addEventListener('resize', this._onResize);
+    this._applyAccent();
+  }
+  componentDidUpdate() { this._applyAccent(); }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
+
+  _applyAccent() {
+    const a = this.props.accentColor;
+    if (this.rootEl && a) this.rootEl.style.setProperty('--green', a);
+  }
+
+  _icon(name, size, style) {
+    return React.createElement(window.LB.Icon, { name, size: size || 20, style });
+  }
+
+  renderVals() {
+    const ic = (n, s, st) => this._icon(n, s, st);
+    const DS = window.LinkbaseDesignSystem_9f6309 || {};
+    const w = this.state.width;
+    const isMobile = w < 760;
+    const isTablet = w >= 760 && w < 1120;
+    const isDesktop = w >= 1120;
+    const username = this.props.username || 'gabbasdev';
+
+    const nav = [
+      { id: 'content', label: 'Content', icon: ic('layout-grid', 22) },
+      { id: 'header', label: 'Header', icon: ic('contact', 22) },
+      { id: 'design', label: 'Design', icon: ic('paintbrush', 22) },
+      { id: 'settings', label: 'Settings', icon: ic('settings', 22) },
+    ];
+    const navMobile = nav.map(n => ({
+      label: n.label,
+      icon: this._icon(n.id === 'content' ? 'layout-grid' : n.id === 'header' ? 'contact' : n.id === 'design' ? 'paintbrush' : 'settings', 20),
+      variant: this.state.nav === n.id ? 'solid' : 'soft',
+      onClick: () => this.setState({ nav: n.id }),
+    }));
+
+    const links = this.state.links.map(l => ({
+      id: l.id, title: l.title, clicks: l.clicks, domain: l.domain,
+      thumbNode: ic(l.icon, 22, { color: 'var(--gray-500)' }),
+    }));
+
+    const avatarNode = DS.Avatar ? React.createElement(DS.Avatar, { name: username, size: 'lg' }) : null;
+
+    const rowGap = isMobile ? 24 : (isTablet ? 18 : 28);
+    const rootStyle = { minHeight: '100vh', background: 'var(--black)', fontFamily: 'var(--font-sans)' };
+    const promoStyle = { background: 'var(--black)', color: '#fff', minHeight: 56, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, padding: isMobile ? '12px 16px' : '0 20px', flexWrap: 'wrap', textAlign: 'center' };
+    const sheetStyle = { background: 'var(--surface-page)', borderRadius: isMobile ? '20px 20px 0 0' : '24px 24px 0 0', minHeight: 'calc(100vh - 56px)' };
+    const urlBarStyle = { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, padding: isMobile ? '14px 16px' : '18px 28px', flexWrap: 'wrap' };
+    const workspaceStyle = { maxWidth: 1180, margin: '0 auto' };
+    const rowStyle = { display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: rowGap, padding: isMobile ? '0 16px 44px' : '0 28px 48px', alignItems: isMobile ? 'stretch' : 'flex-start' };
+    const editorStyle = { flex: isMobile ? '0 1 auto' : '1 1 auto', width: '100%', maxWidth: isMobile ? '100%' : 640, minWidth: 0, background: 'var(--surface-card)', borderRadius: 24, boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border-subtle)', padding: isMobile ? '20px 18px' : '28px' };
+    const phoneWrapStyle = isMobile
+      ? { display: 'flex', justifyContent: 'center' }
+      : { position: 'sticky', top: 16, flex: '0 0 auto' };
+    const phoneStyle = { width: isMobile ? 'min(340px, 100%)' : (isTablet ? 264 : 300), background: 'var(--surface-page)', borderRadius: 28, padding: 20, boxShadow: 'var(--shadow-float)', border: '1px solid var(--border-subtle)' };
+    const mobileNavStyle = { display: 'flex', justifyContent: 'center', gap: 10, padding: '0 0 4px' };
+
+    return {
+      setRoot: (el) => { this.rootEl = el; if (el && this.props.accentColor) el.style.setProperty('--green', this.props.accentColor); },
+      isMobile, isTablet, isDesktop, showSidebar: !isMobile,
+      username,
+      navItems: nav, navMobile,
+      activeNav: this.state.nav, selectNav: (id) => this.setState({ nav: id }),
+      tabs: [{ id: 'links', label: 'Links' }],
+      activeTab: this.state.tab, selectTab: (id) => this.setState({ tab: id }),
+      isLinks: this.state.tab === 'links', isShop: this.state.tab === 'shop',
+      links,
+      footerOn: this.state.footerOn,
+      setFooter: (e) => this.setState({ footerOn: e.target.checked }),
+      addLink: () => this.setState(s => ({ links: [{ id: Date.now(), title: 'New link', clicks: 0, domain: 'example.com', icon: 'link' }, ...s.links] })),
+      avatarNode,
+      socials: [{ label: 'Instagram', icon: ic('instagram', 24) }],
+      iconZap: ic('zap', 16),
+      iconBack: ic('arrow-left', 22),
+      iconSparkles: ic('sparkles', 16),
+      iconListChecks: ic('list-checks', 20),
+      iconArchive: ic('archive', 20),
+      iconAdd: ic('plus', 18),
+      iconFolder: ic('folder-plus', 18),
+      iconInstaSm: ic('instagram', 16),
+      iconAtSign: ic('at-sign', 15, { color: 'var(--gray-500)' }),
+      iconPlusSm: ic('plus', 16),
+      iconAsterisk: ic('asterisk', 18),
+      iconShareSm: ic('share', 15),
+      iconShopping: ic('shopping-bag', 40, { margin: '0 auto 12px', color: 'var(--gray-400)' }),
+      rootStyle, promoStyle, sheetStyle, urlBarStyle, workspaceStyle, rowStyle, editorStyle, phoneWrapStyle, phoneStyle, mobileNavStyle,
+    };
+  }
+}
+</script>
+</body>
+</html>

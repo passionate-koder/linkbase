@@ -1,0 +1,5 @@
+/* Webfonts.
+   SUBSTITUTION: Linktree ships custom fonts (marketing "DDC Hardware", product
+   "Aeonik Pro") that are not publicly licensed. We substitute the closest
+   Google Fonts — Hanken Grotesk (display) and Figtree (UI/body). Flagged in readme. */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap');

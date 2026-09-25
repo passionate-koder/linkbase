@@ -1,0 +1,60 @@
+:root {
+  /* ---- Neutrals (subtly warm) ---- */
+  --white: #ffffff;
+  --black: #000000;
+  --ink: #0e0e0e;            /* primary text / near-black surfaces */
+  --gray-50:  #f7f7f5;
+  --gray-100: #efefed;       /* app + profile page background */
+  --gray-200: #e5e5e2;
+  --gray-300: #d3d3ce;
+  --gray-400: #a9a9a2;
+  --gray-500: #76766f;       /* secondary text */
+  --gray-600: #54544e;
+  --gray-700: #3a3a35;
+  --gray-900: #131311;
+
+  /* ---- Brand green ---- */
+  --green-bright: #43e660;   /* signature accent (logo tone, highlights) */
+  --green: #1cb454;          /* action green: Upgrade, toggles */
+  --green-ink: #0d3b1c;      /* deep green ink used on green surfaces */
+  --kale: #254f1a;           /* dark forest green */
+
+  /* ---- Marketing "color block" palette ---- */
+  --chartreuse: #e9ef6b;     /* hero lime */
+  --cobalt:  #0b4bd1;        /* blue block */
+  --berry:   #7a1e2e;        /* dark red block */
+  --sage:    #dce6cd;        /* pale mint block */
+  --grape:   #612b9b;        /* purple block */
+  --blush:   #f3c6da;        /* pink cards */
+  --mustard: #e0a82e;        /* welcome / illustration yellow */
+
+  /* ---- Semantic aliases ---- */
+  --text-primary: var(--ink);
+  --text-secondary: var(--gray-500);
+  --text-tertiary: var(--gray-400);
+  --text-on-dark: var(--white);
+  --text-on-green: var(--green-ink);
+  --text-link: var(--ink);
+  --text-link-hover: var(--gray-600);
+
+  --surface-page: var(--gray-100);
+  --surface-card: var(--white);
+  --surface-sunken: var(--gray-50);
+  --surface-inverse: var(--black);
+  --surface-hover: var(--gray-50);
+
+  --border-subtle: var(--gray-200);
+  --border-strong: var(--gray-300);
+  --border-focus: var(--ink);
+
+  --accent: var(--green-bright);
+  --accent-action: var(--green);
+  --accent-ink: var(--green-ink);
+
+  --btn-primary-bg: var(--black);
+  --btn-primary-fg: var(--white);
+  --btn-secondary-bg: var(--gray-100);
+  --btn-secondary-fg: var(--ink);
+
+  --focus-ring: 0 0 0 3px rgba(28,180,84,.35);
+}
